@@ -1,0 +1,164 @@
+<html>
+    <meta charset="utf-8"/>
+    <head>
+        <!-- <link rel="stylesheet" type="text/css"  href="bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css"  href="aaa.css"> -->
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"> -->
+
+        <title> Bandejão </title>
+    </head>
+
+    <body >
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12" style="min-height:10%;max-height:10%;background-color:#A2825C">
+
+                    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#A2825C">
+                        <a class="navbar-brand" href="#">Bandejaço</a>
+
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <!-- Proxima versao???? -->
+
+                        <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Histórico de Refeições</a>
+                                </li>
+
+                            </ul>
+
+                        </div> -->
+                    </nav>
+
+                </div>
+            </div>
+            <div class="row" style="background-color:#BEA586">
+                <div class="col-2" style="min-height:90%">
+
+                </div>
+                <div class="col-8" style="min-height:90%;">
+
+                    <!-- <div class="card text-white bg-secondary mb-3" style="min-width: 100%;margin-top: 5%">
+                        <div class="card-header">00/00/2000 - Sexta-feira</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Horário</h5>
+                            <p class="card-text">
+                                Descrição da comida<br/>
+                                Feijão: Feijão Preto<br/>
+                                Arroz: Arroz Branco<br/>
+                                Guarnição: Macarrão ao Alho e Óleo<br/>
+                                Proteina: Carré<br/>
+                                Opção: Rabada<br/>
+                                Opção Vegetariana: Churrasco<br/>
+                                Salada: Batata Frita<br/>
+                                Sobremesa: Sorvete<br/>
+                                Suco: Coca-Cola<br/>
+                                <hr>
+                                aviso
+                            </p>
+                        </div>
+                    </div> -->
+
+
+                    {% if latestRefeicao %}
+
+                    <div class="card text-white bg-secondary mb-3" style="min-width: 100%;margin-top: 5%">
+                        <div class="card-header">{{latestRefeicao.data}} - {{latestRefeicao.diaDaSemana}}</div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{latestRefeicao.horario.nomeHorario}} [ {{latestRefeicao.horario.horarioInicio}} ]</h5>
+                            <p class="card-text">
+                                Descrição da comida<br/>
+
+                                Feijão: {{latestRefeicao.feijao}}<br/>
+                                Arroz: {{latestRefeicao.arroz}}<br/>
+                                Guarnição: {{latestRefeicao.guarnicao}}<br/>
+                                Proteina: {{latestRefeicao.proteina}}<br/>
+                                Opção: {{latestRefeicao.proteina2}}<br/>
+                                Opção Vegetariana: {{latestRefeicao.opcaoVegetariana}}<br/>
+                                Salada: {{latestRefeicao.salada}}<br/>
+                                Sobremesa: {{latestRefeicao.sobremesa}}<br/>
+                                Suco: {{latestRefeicao.suco}}<br/>
+
+                                {% if latestRefeicao.aviso %}
+
+                                    <hr>
+                                    {{latestRefeicao.aviso}}
+
+                                {% else %}
+
+                                    <br/>
+
+                                {% endif %}
+
+
+                            </p>
+                        </div>
+                    </div>
+
+
+                    {% else %}
+                        <p> Sem refeicao </p>
+
+                    {% endif %}
+
+
+
+
+                    <table class="table table-striped table-warning" style="margin-top: 5%">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Grupo</th>
+                                <th scope="col">Preço</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row" rowspan="3">Café da Manhã </th>
+                                <tr>
+                                    <td>Aluno </td>
+                                    <td>0,70</td>
+                                </tr>
+                                <td>Outros</td>
+                                <td>2,00</td>
+                            </tr>
+                            <tr>
+
+                                <th scope="row" rowspan="5">Almoço / Jantar</th>
+                                <td>Aluno</td>
+                                <td>1,45</td>
+                                <tr>
+                                    <td>Terceirizado</td>
+                                    <td>3,00</td>
+                                </tr>
+                                <tr>
+                                    <td>Técnico Administrativo </td>
+                                    <td>4,15</td>
+                                </tr>
+                                <tr>
+                                    <td>Professor; Visitante </td>
+                                    <td>5,00</td>
+                                </tr>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-2" style="min-height:90%">
+
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
+
+
+
+
